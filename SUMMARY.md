@@ -1,3 +1,3 @@
 # Table of content
 
-* [First Chapter](chapter1.md)
+* [基础篇](chapter1.md)
