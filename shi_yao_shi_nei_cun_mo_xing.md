@@ -39,4 +39,7 @@ Java内存模型描述了在多线程代码中哪些行为是合法的，以及�
 
 Java包含了几个语言级别的关键字，包括：volatile, final以及synchronized，目的是为了帮助程序员向编译器描述一个程序的并发需求。Java内存模型定义了volatile和synchronized的行为，更重要的是保证了同步的java程序在所有的处理器架构下面都能正确的运行。
 
+---
+内存模型其实很多东西要了解，如果有人对这块感兴趣，可以参看下面的链接：
 
+http://www.infoq.com/cn/author/%E7%A8%8B%E6%99%93%E6%98%8E#文章
