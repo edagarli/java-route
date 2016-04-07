@@ -1,3 +1,3 @@
-# Java成神路线技术
+# Java成神技术路线
 
 This file file serves as your book's preface, a great place to describe your book's content and ideas.
