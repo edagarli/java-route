@@ -1,3 +1,3 @@
-# Table of content
+# 目录
 
 * [基础篇](chapter1.md)
