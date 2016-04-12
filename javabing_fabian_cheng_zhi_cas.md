@@ -7,6 +7,9 @@ CAS（Compare and swap）比较和替换是设计并发算法时用到的一种�
 在程序和算法中一个经常出现的模式就是“check and act”模式。先检查后操作模式发生在代码中首先检查一个变量的值，然后再基于这个值做一些操作。下面是一个简单的示例：
 
 
+
+
+
 class MyLock {
     private boolean locked = false;
     public boolean lock() {
