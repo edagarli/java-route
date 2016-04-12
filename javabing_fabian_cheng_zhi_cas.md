@@ -56,7 +56,9 @@ class MyLock {
 
 ```
 public static class MyLock {
+    
     private AtomicBoolean locked = new AtomicBoolean(false);
+
     public boolean lock() {
         return locked.compareAndSet(false, true);
     }
