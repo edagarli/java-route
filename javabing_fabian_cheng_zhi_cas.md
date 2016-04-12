@@ -31,8 +31,18 @@ class MyLock {
 下面是一个代码示例，把之前的lock()方法用synchronized关键字重构成一个原子块。
 
 
-
-
+```
+class MyLock {
+    private boolean locked = false;
+    public boolean lock() {
+        if(!locked) {
+            locked = true;
+            return true;
+        }
+        return false;
+    }
+}
+```
 
 
 
