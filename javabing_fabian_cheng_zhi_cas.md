@@ -50,6 +50,9 @@ class MyLock {
 
 ## CAS用作原子操作
 
+现在CPU内部已经执行原子的CAS操作。Java5以来，你可以使用java.util.concurrent.atomic包中的一些原子类来使用CPU中的这些功能。
+
+下面是一个使用AtomicBoolean类实现lock()方法的例子：
 
 
 
