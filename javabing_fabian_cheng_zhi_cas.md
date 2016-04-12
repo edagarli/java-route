@@ -34,7 +34,7 @@ class MyLock {
 ```
 class MyLock {
     private boolean locked = false;
-    public boolean lock() {
+    public synchronized boolean lock() {
         if(!locked) {
             locked = true;
             return true;
@@ -43,6 +43,8 @@ class MyLock {
     }
 }
 ```
+
+
 
 
 
