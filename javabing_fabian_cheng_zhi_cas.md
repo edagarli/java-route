@@ -48,7 +48,7 @@ class MyLock {
 
 原子的lock方法实际上是一个”compare and swap“的例子。
 
-##CAS用作原子操作
+## CAS用作原子操作
 
 
 
