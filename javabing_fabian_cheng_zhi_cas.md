@@ -18,7 +18,6 @@ class MyLock {
         return false;
     }
 }
-
 ```
 
 
