@@ -55,22 +55,13 @@ class MyLock {
 下面是一个使用AtomicBoolean类实现lock()方法的例子：
 
 ```
-
 public static class MyLock {
-2
     private AtomicBoolean locked = new AtomicBoolean(false);
-3
- 
-4
     public boolean lock() {
-5
         return locked.compareAndSet(false, true);
-6
     }
-7
- 
-8
 }
+```
 
 
 
