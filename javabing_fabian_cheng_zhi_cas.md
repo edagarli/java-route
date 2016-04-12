@@ -44,6 +44,10 @@ class MyLock {
 }
 ```
 
+现在lock()方法是同步的，所以，在某一时刻只能有一个线程在同一个MyLock实例上执行它。
+
+原子的lock方法实际上是一个”compare and swap“的例子。
+
 
 
 
