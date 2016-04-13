@@ -115,4 +115,51 @@ ConcurrentHashMap 的结构中包含的 Segment 的数组，在默认的并发�
 我们通过注释可以了解到，ConcurrentHashMap 不允许空值。该方法首先有一个 Segment 的引用 s，然后会通过 hash() 方法对 key 进行计算，得到哈希值；继而通过调用 Segment 的 put(K key, int hash, V value, boolean onlyIfAbsent)方法进行存储操作。该方法源码为：
 
 
-
+‘’‘
+final V put(K key, int hash, V value, boolean onlyIfAbsent) {
+    //加锁，这里是锁定的Segment而不是整个ConcurrentHashMap
+    HashEntry<K,V> node = tryLock() ? null :scanAndLockForPut(key, hash, value);
+    V oldValue;
+    try {
+        HashEntry<K,V>[] tab = table;
+        //得到hash对应的table中的索引index
+        int index = (tab.length - 1) & hash;
+        //找到hash对应的是具体的哪个桶，也就是哪个HashEntry链表
+        HashEntry<K,V> first = entryAt(tab, index);
+        for (HashEntry<K,V> e = first;;) {
+            if (e != null) {
+                K k;
+                if ((k = e.key) == key ||
+                    (e.hash == hash && key.equals(k))) {
+                    oldValue = e.value;
+                    if (!onlyIfAbsent) {
+                        e.value = value;
+                        ++modCount;
+                    }
+                    break;
+                }
+                e = e.next;
+            }
+            else {
+                if (node != null)
+                    node.setNext(first);
+                else
+                    node = new HashEntry<K,V>(hash, key, value, first);
+                int c = count + 1;
+                if (c > threshold && tab.length < MAXIMUM_CAPACITY)
+                    rehash(node);
+                else
+                    setEntryAt(tab, index, node);
+                ++modCount;
+                count = c;
+                oldValue = null;
+                break;
+            }
+        }
+    } finally {
+        //解锁
+        unlock();
+    }
+    return oldValue;
+}
+‘’‘
