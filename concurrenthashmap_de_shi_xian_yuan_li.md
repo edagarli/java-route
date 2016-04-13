@@ -44,4 +44,33 @@ HashEntry 的学习可以类比着 HashMap 中的 Entry。我们的存储键值�
 ### Segment
 Segment 的类定义为static final class Segment<K,V> extends ReentrantLock implements Serializable。其继承于 ReentrantLock 类，从而使得 Segment 对象可以充当锁的角色。Segment 中包含HashEntry 的数组，其可以守护其包含的若干个桶（HashEntry的数组）。Segment 在某些意义上有点类似于 HashMap了，都是包含了一个数组，而数组中的元素可以是一个链表。
 
+Segment 的类定义为static final class Segment<K,V> extends ReentrantLock implements Serializable。其继承于 ReentrantLock 类，从而使得 Segment 对象可以充当锁的角色。Segment 中包含HashEntry 的数组，其可以守护其包含的若干个桶（HashEntry的数组）。Segment 在某些意义上有点类似于 HashMap了，都是包含了一个数组，而数组中的元素可以是一个链表。
 
+table:table 是由 HashEntry 对象组成的数组如果散列时发生碰撞，碰撞的 HashEntry 对象就以链表的形式链接成一个链表table数组的数组成员代表散列映射表的一个桶每个 table 守护整个 ConcurrentHashMap 包含桶总数的一部分如果并发级别为 16，table 则守护 ConcurrentHashMap 包含的桶总数的 1/16。
+
+count 变量是计算器，表示每个 Segment 对象管理的 table 数组（若干个 HashEntry 的链表）包含的HashEntry 对象的个数。之所以在每个Segment对象中包含一个 count 计数器，而不在 ConcurrentHashMap 中使用全局的计数器，是为了避免出现“热点域”而影响并发性。
+
+/**
+     * Segments are specialized versions of hash tables.  This
+     * subclasses from ReentrantLock opportunistically, just to
+     * simplify some locking and avoid separate construction.
+     */
+    static final class Segment<K,V> extends ReentrantLock implements Serializable {
+      /**
+         * The per-segment table. Elements are accessed via
+         * entryAt/setEntryAt providing volatile semantics.
+         */
+        transient volatile HashEntry<K,V>[] table;
+
+        /**
+         * The number of elements. Accessed only either within locks
+         * or among other volatile reads that maintain visibility.
+         */
+        transient int count;
+        transient int modCount;
+        /**
+         * 装载因子
+         */
+        final float loadFactor;
+    }
+我们通过下图来展示一下插入 ABC 三个节点后，Segment 的示意图：
