@@ -82,7 +82,7 @@ count 变量是计算器，表示每个 Segment 对象管理的 table 数组（�
     
 我们通过下图来展示一下插入 ABC 三个节点后，Segment 的示意图：
 
-图2
+![](http://wiki.jikexueyuan.com/project/java-collection/images/concurrenthashmap2.jpg)
 
 其实从我个人角度来说，Segment结构是与HashMap很像的。
 
