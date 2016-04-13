@@ -11,5 +11,5 @@ ConcurrentHashMap 的实现是依赖于 Java 内存模型，所以我们在了�
 ### ConcurrentHashMap分析
 ConcurrentHashMap 的结构是比较复杂的，都深究去本质，其实也就是数组和链表而已。我们由浅入深慢慢的分析其结构。
 
-  先简单分析一下，ConcurrentHashMap的成员变量中，包含了一个Segment的数组（final Segment<K,V>[] segments）, 而Segment是ConcurrentHashMap的内部类，然后在Segment这个类中,包含了一个HashEntry的数组(transient volatile HashEntry<K,V>[] table;)
+  先简单分析一下，ConcurrentHashMap的成员变量中，包含了一个Segment的数组（final Segment<K,V>[] segments）, 而Segment是ConcurrentHashMap的内部类，然后在Segment这个类中,包含了一个HashEntry的数组(transient volatile HashEntry<K,V>[] table;)。而
 
