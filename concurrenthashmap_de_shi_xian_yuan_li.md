@@ -83,3 +83,4 @@ ConcurrentHashMap 的结构中包含的 Segment 的数组，在默认的并发�
 
 下面我们还有通过一个图来演示一下 ConcurrentHashMap 的结构：
 ![](http://wiki.jikexueyuan.com/project/java-collection/images/concurrenthashmap3.jpg)
+
