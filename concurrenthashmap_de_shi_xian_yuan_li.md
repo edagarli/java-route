@@ -18,7 +18,7 @@ ConcurrentHashMap 的结构是比较复杂的，都深究去本质，其实也�
 首先，我们看一下 HashEntry 类。
 HashEntry
 
-HashEntry 用来封装散列映射表中的键值对。在 HashEntry 类中，key，hash 和 next 域都被声明为 final 型，value 域被声明为 volatile 型。其类的定义为：
+HashEntry 用来封装散列映射表中的键值对。在 HashEntry 类中，key，hash 和  域都被声明为 final 型，value和next 域被声明为 volatile 型。其类的定义为：
 
 static final class HashEntry<K,V> {
         final int hash;
