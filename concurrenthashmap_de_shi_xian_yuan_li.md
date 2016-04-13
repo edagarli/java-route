@@ -45,7 +45,7 @@ HashEntry 的学习可以类比着 HashMap 中的 Entry。我们的存储键值�
 
 图1
 
-Segment
+###Segment
 
 Segment 的类定义为static final class Segment<K,V> extends ReentrantLock implements Serializable。其继承于 ReentrantLock 类，从而使得 Segment 对象可以充当锁的角色。Segment 中包含HashEntry 的数组，其可以守护其包含的若干个桶（HashEntry的数组）。Segment 在某些意义上有点类似于 HashMap了，都是包含了一个数组，而数组中的元素可以是一个链表。
 
@@ -53,6 +53,7 @@ table:table 是由 HashEntry 对象组成的数组如果散列时发生碰撞，
 
 count 变量是计算器，表示每个 Segment 对象管理的 table 数组（若干个 HashEntry 的链表）包含的HashEntry 对象的个数。之所以在每个Segment对象中包含一个 count 计数器，而不在 ConcurrentHashMap 中使用全局的计数器，是为了避免出现“热点域”而影响并发性。
 
+```
 /**
      * Segments are specialized versions of hash tables.  This
      * subclasses from ReentrantLock opportunistically, just to
@@ -76,6 +77,9 @@ count 变量是计算器，表示每个 Segment 对象管理的 table 数组（�
          */
         final float loadFactor;
     }
+ ```
+    
+    
 我们通过下图来展示一下插入 ABC 三个节点后，Segment 的示意图：
 
 图2
