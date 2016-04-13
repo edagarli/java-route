@@ -92,7 +92,7 @@ ConcurrentHashMap 的结构中包含的 Segment 的数组，在默认的并发�
 
 下面我们还有通过一个图来演示一下 ConcurrentHashMap 的结构：
 
-图3
+![](http://wiki.jikexueyuan.com/project/java-collection/images/concurrenthashmap3.jpg)
 
 并发写操作
 在 ConcurrentHashMap 中，当执行 put 方法的时候，会需要加锁来完成。我们通过代码来解释一下具体过程： 当我们 new 一个 ConcurrentHashMap 对象，并且执行put操作的时候，首先会执行 ConcurrentHashMap 类中的 put 方法，该方法源码为：
