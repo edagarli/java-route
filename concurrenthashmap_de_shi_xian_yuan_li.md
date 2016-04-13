@@ -43,7 +43,7 @@ HashEntry 的学习可以类比着 HashMap 中的 Entry。我们的存储键值�
 
 如下图，我们在一个空桶中插入 A、B、C 两个 HashEntry 对象后的结构图（其实应该为键值对，在这进行了简化以方便更容易理解）：
 
-图1
+![](http://wiki.jikexueyuan.com/project/java-collection/images/concurrenthashmap1.jpg)
 
 ###Segment
 
