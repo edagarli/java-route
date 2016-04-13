@@ -86,7 +86,7 @@ ConcurrentHashMap 的结构中包含的 Segment 的数组，在默认的并发�
 ###并发写操作
 在 ConcurrentHashMap 中，当执行 put 方法的时候，会需要加锁来完成。我们通过代码来解释一下具体过程： 当我们 new 一个 ConcurrentHashMap 对象，并且执行put操作的时候，首先会执行 ConcurrentHashMap 类中的 put 方法，该方法源码为：
 
-   
+```
    /**
      * Maps the specified key to the specified value in this table.
      * Neither the key nor the value can be null.
@@ -112,6 +112,8 @@ ConcurrentHashMap 的结构中包含的 Segment 的数组，在默认的并发�
             s = ensureSegment(j);
         return s.put(key, hash, value, false);
     }
+```
+    
 我们通过注释可以了解到，ConcurrentHashMap 不允许空值。该方法首先有一个 Segment 的引用 s，然后会通过 hash() 方法对 key 进行计算，得到哈希值；继而通过调用 Segment 的 put(K key, int hash, V value, boolean onlyIfAbsent)方法进行存储操作。该方法源码为：
 
 
@@ -163,3 +165,5 @@ final V put(K key, int hash, V value, boolean onlyIfAbsent) {
     return oldValue;
 }
 ```
+
+
