@@ -42,4 +42,6 @@ HashEntry 的学习可以类比着 HashMap 中的 Entry。我们的存储键值�
 ![](http://wiki.jikexueyuan.com/project/java-collection/images/concurrenthashmap1.jpg)
 
 ### Segment
+Segment 的类定义为static final class Segment<K,V> extends ReentrantLock implements Serializable。其继承于 ReentrantLock 类，从而使得 Segment 对象可以充当锁的角色。Segment 中包含HashEntry 的数组，其可以守护其包含的若干个桶（HashEntry的数组）。Segment 在某些意义上有点类似于 HashMap了，都是包含了一个数组，而数组中的元素可以是一个链表。
+
 
