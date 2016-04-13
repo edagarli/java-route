@@ -74,3 +74,4 @@ count 变量是计算器，表示每个 Segment 对象管理的 table 数组（�
         final float loadFactor;
     }
 我们通过下图来展示一下插入 ABC 三个节点后，Segment 的示意图：
+![](http://wiki.jikexueyuan.com/project/java-collection/images/concurrenthashmap2.jpg)
