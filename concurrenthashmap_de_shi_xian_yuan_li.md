@@ -79,3 +79,6 @@ count 变量是计算器，表示每个 Segment 对象管理的 table 数组（�
 其实从我个人角度来说，Segment结构是与HashMap很像的。
 
 ### ConcurrentHashMap
+ConcurrentHashMap 的结构中包含的 Segment 的数组，在默认的并发级别会创建包含 16 个 Segment 对象的数组。通过我们上面的知识，我们知道每个 Segment 又包含若干个散列表的桶，每个桶是由 HashEntry 链接起来的一个链表。如果 key 能够均匀散列，每个 Segment 大约守护整个散列表桶总数的 1/16。
+
+下面我们还有通过一个图来演示一下 ConcurrentHashMap 的结构：
