@@ -41,4 +41,5 @@ HashEntry 的学习可以类比着 HashMap 中的 Entry。我们的存储键值�
 
 ![](http://wiki.jikexueyuan.com/project/java-collection/images/concurrenthashmap1.jpg)
 
+### Segment
 
