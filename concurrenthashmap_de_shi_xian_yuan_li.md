@@ -77,3 +77,5 @@ count 变量是计算器，表示每个 Segment 对象管理的 table 数组（�
 ![](http://wiki.jikexueyuan.com/project/java-collection/images/concurrenthashmap2.jpg)
 
 其实从我个人角度来说，Segment结构是与HashMap很像的。
+
+### ConcurrentHashMap
