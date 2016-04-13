@@ -172,6 +172,6 @@ final V put(K key, int hash, V value, boolean onlyIfAbsent) {
 
 正是因为其内部的结构以及机制，所以 ConcurrentHashMap 在并发访问的性能上要比Hashtable和同步包装之后的HashMap的性能提高很多。在理想状态下，ConcurrentHashMap 可以支持 16 个线程执行并发写操作（如果并发级别设置为 16），及任意数量线程的读操作。
 
-＃＃＃总结
+### 总结
 
 
