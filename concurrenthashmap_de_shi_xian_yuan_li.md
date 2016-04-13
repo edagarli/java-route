@@ -21,6 +21,7 @@ HashEntry
 
 HashEntry 用来封装散列映射表中的键值对。在 HashEntry 类中，key，hash 和 next 域都被声明为 final 型，value 域被声明为 volatile 型。其类的定义为：
 
+```
 static final class HashEntry<K,V> {
         final int hash;
         final K key;
@@ -36,6 +37,8 @@ static final class HashEntry<K,V> {
         ...
         ...
 }
+```
+
 HashEntry 的学习可以类比着 HashMap 中的 Entry。我们的存储键值对的过程中，散列的时候如果发生“碰撞”，将采用“分离链表法”来处理碰撞：把碰撞的 HashEntry 对象链接成一个链表。
 
 如下图，我们在一个空桶中插入 A、B、C 两个 HashEntry 对象后的结构图（其实应该为键值对，在这进行了简化以方便更容易理解）：
