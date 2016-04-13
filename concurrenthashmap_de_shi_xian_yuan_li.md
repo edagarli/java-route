@@ -86,6 +86,7 @@ ConcurrentHashMap 的结构中包含的 Segment 的数组，在默认的并发�
 ###并发写操作
 在 ConcurrentHashMap 中，当执行 put 方法的时候，会需要加锁来完成。我们通过代码来解释一下具体过程： 当我们 new 一个 ConcurrentHashMap 对象，并且执行put操作的时候，首先会执行 ConcurrentHashMap 类中的 put 方法，该方法源码为：
 
+   
    /**
      * Maps the specified key to the specified value in this table.
      * Neither the key nor the value can be null.
@@ -113,54 +114,4 @@ ConcurrentHashMap 的结构中包含的 Segment 的数组，在默认的并发�
     }
 我们通过注释可以了解到，ConcurrentHashMap 不允许空值。该方法首先有一个 Segment 的引用 s，然后会通过 hash() 方法对 key 进行计算，得到哈希值；继而通过调用 Segment 的 put(K key, int hash, V value, boolean onlyIfAbsent)方法进行存储操作。该方法源码为：
 
-final V put(K key, int hash, V value, boolean onlyIfAbsent) {
-    //加锁，这里是锁定的Segment而不是整个ConcurrentHashMap
-    HashEntry<K,V> node = tryLock() ? null :scanAndLockForPut(key, hash, value);
-    V oldValue;
-    try {
-        HashEntry<K,V>[] tab = table;
-        //得到hash对应的table中的索引index
-        int index = (tab.length - 1) & hash;
-        //找到hash对应的是具体的哪个桶，也就是哪个HashEntry链表
-        HashEntry<K,V> first = entryAt(tab, index);
-        for (HashEntry<K,V> e = first;;) {
-            if (e != null) {
-                K k;
-                if ((k = e.key) == key ||
-                    (e.hash == hash && key.equals(k))) {
-                    oldValue = e.value;
-                    if (!onlyIfAbsent) {
-                        e.value = value;
-                        ++modCount;
-                    }
-                    break;
-                }
-                e = e.next;
-            }
-            else {
-                if (node != null)
-                    node.setNext(first);
-                else
-                    node = new HashEntry<K,V>(hash, key, value, first);
-                int c = count + 1;
-                if (c > threshold && tab.length < MAXIMUM_CAPACITY)
-                    rehash(node);
-                else
-                    setEntryAt(tab, index, node);
-                ++modCount;
-                count = c;
-                oldValue = null;
-                break;
-            }
-        }
-    } finally {
-        //解锁
-        unlock();
-    }
-    return oldValue;
-}
-关于该方法的某些关键步骤，在源码上加上了注释。
 
-需要注意的是：加锁操作是针对的 hash 值对应的某个 Segment，而不是整个 ConcurrentHashMap。因为 put 操作只是在这个 Segment 中完成，所以并不需要对整个 ConcurrentHashMap 加锁。所以，此时，其他的线程也可以对另外的 Segment 进行 put 操作，因为虽然该 Segment 被锁住了，但其他的 Segment 并没有加锁。同时，读线程并不会因为本线程的加锁而阻塞。
-
-正是因为其内部的结构以及机制，所以 ConcurrentHashMap 在并发访问的性能上要比Hashtable和同步包装之后的HashMap的性能提高很多。在理想状态下，ConcurrentHashMap 可以支持 16 个线程执行并发写操作（如果并发级别设置为 16），及任意数量线程的读操作。
