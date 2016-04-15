@@ -180,12 +180,13 @@ private static final int HASH_INCREMENT = 0x61c88647;
 private final int threadLocalHashCode = nextHashCode();  
 ```
 那么nextHashCode()做了什么呢： 
-Java代码  收藏代码
+```
 private static synchronized int nextHashCode() {  
     int h = nextHashCode;  
     nextHashCode = h + HASH_INCREMENT;  
     return h;  
-}  
+}
+```
 就是将ThreadLocal类的下一个hashCode值即nextHashCode的值赋给实例的threadLocalHashCode，然后nextHashCode的值增加HASH_INCREMENT这个值。 
 
 因此ThreadLocal实例的变量只有这个threadLocalHashCode，而且是final的，用来区分不同的ThreadLocal实例，ThreadLocal类主要是作为工具类来使用，那么ThreadLocal.set()进去的对象是放在哪儿的呢？ 
