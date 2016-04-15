@@ -176,9 +176,9 @@ private static final int HASH_INCREMENT = 0x61c88647;
 而作为ThreadLocal实例的变量只有 threadLocalHashCode 这一个，nextHashCode 和HASH_INCREMENT 是ThreadLocal类的静态变量，实际上HASH_INCREMENT是一个常量，表示了连续分配的两个ThreadLocal实例的threadLocalHashCode值的增量，而nextHashCode 的表示了即将分配的下一个ThreadLocal实例的threadLocalHashCode 的值。 
 
 可以来看一下创建一个ThreadLocal实例即new ThreadLocal()时做了哪些操作，从上面看到构造函数ThreadLocal()里什么操作都没有，唯一的操作是这句： 
-Java代码  收藏代码
+```
 private final int threadLocalHashCode = nextHashCode();  
-
+```
 那么nextHashCode()做了什么呢： 
 Java代码  收藏代码
 private static synchronized int nextHashCode() {  
@@ -191,11 +191,11 @@ private static synchronized int nextHashCode() {
 因此ThreadLocal实例的变量只有这个threadLocalHashCode，而且是final的，用来区分不同的ThreadLocal实例，ThreadLocal类主要是作为工具类来使用，那么ThreadLocal.set()进去的对象是放在哪儿的呢？ 
 
 看一下上面的set()方法，两句合并一下成为 
-Java代码  收藏代码
+```
 ThreadLocalMap map = Thread.currentThread().threadLocals;  
-
+```
 这个ThreadLocalMap 类是ThreadLocal中定义的内部类，但是它的实例却用在Thread类中： 
-Java代码  收藏代码
+```
 public class Thread implements Runnable {  
     ......  
   
@@ -203,7 +203,8 @@ public class Thread implements Runnable {
      * by the ThreadLocal class. */  
     ThreadLocal.ThreadLocalMap threadLocals = null;    
     ......  
-}  
+} 
+```
 
 
 再看这句： 
