@@ -206,7 +206,6 @@ public class Thread implements Runnable {
 } 
 ```
 
-
 再看这句： 
 ```
 if (map != null)  
