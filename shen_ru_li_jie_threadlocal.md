@@ -167,10 +167,11 @@ public class ThreadLocal<T> {
 ```
 
 可以看到ThreadLocal类中的变量只有这3个int型： 
-Java代码  收藏代码
+```
 private final int threadLocalHashCode = nextHashCode();  
 private static int nextHashCode = 0;  
 private static final int HASH_INCREMENT = 0x61c88647;  
+```
 
 而作为ThreadLocal实例的变量只有 threadLocalHashCode 这一个，nextHashCode 和HASH_INCREMENT 是ThreadLocal类的静态变量，实际上HASH_INCREMENT是一个常量，表示了连续分配的两个ThreadLocal实例的threadLocalHashCode值的增量，而nextHashCode 的表示了即将分配的下一个ThreadLocal实例的threadLocalHashCode 的值。 
 
