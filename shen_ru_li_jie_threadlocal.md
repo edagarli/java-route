@@ -38,7 +38,8 @@ public static Session getSession() throws InfrastructureException {
 ThreadLocal的应用场合，我觉得最适合的是按线程多实例（每个线程对应一个实例）的对象的访问，并且这个对象很多地方都要用到。 
 
 下面来看看ThreadLocal的实现原理（jdk1.5源码） 
-Java代码  收藏代码
+
+```
 public class ThreadLocal<T> {  
     /** 
      * ThreadLocals rely on per-thread hash maps attached to each thread 
@@ -163,7 +164,7 @@ public class ThreadLocal<T> {
     }  
   
 }  
-
+```
 
 可以看到ThreadLocal类中的变量只有这3个int型： 
 Java代码  收藏代码
