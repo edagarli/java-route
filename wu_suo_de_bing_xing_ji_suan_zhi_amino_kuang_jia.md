@@ -10,3 +10,12 @@ CAS算法过程是：它包含三个参数CAS(V,E,N)，V表示内存位置目前
 这种无锁并发控制方法像极了乐观锁。
 
 在JDK的java.util.concurrent.atomic包下，有一组使用无锁方式实现的原子操作，包括AtomicInteger、AtomicIntegerArray、AtomicLong、AtomicLongArray等。以AtomicInteger为例，其中的getAndSet()方法是这样实现CAS的：
+
+
+public final int getAndSet(int newValue){  
+    for(;;){  
+        int current=get();  
+        if(compareAndSet(current,newValue))  
+            return current;  
+    }  
+}  
