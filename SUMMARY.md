@@ -8,4 +8,5 @@
        * [Java并发编程之CAS](javabing_fabian_cheng_zhi_cas.md)
        * [ConcurrentHashMap 的实现原理](concurrenthashmap_de_shi_xian_yuan_li.md)
        * [深入理解ThreadLocal](shen_ru_li_jie_threadlocal.md)
+       * 无锁的并行计算之Amino框架
 
