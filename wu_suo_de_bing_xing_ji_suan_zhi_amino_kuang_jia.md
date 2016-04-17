@@ -33,6 +33,8 @@ Amino并没有加入到官方jdk中，因此需要自行下载、导入。
 下面，在64位4G内存的Windows7测试下Vector与LockFreeVector、CopyOnWriteArrayList与LockFreeList在增加、删除操作的区别。从结果可以看出，后者性能大大提升。
 
 测试代码：
+
+```
 public class CopyList {  
     public static void test1(AccessListTread t, String name){  
         CounterPoolExecutor exe0=new CounterPoolExecutor(2000,2000,0L,TimeUnit.MILLISECONDS,new LinkedBlockingQueue<Runnable>());  
