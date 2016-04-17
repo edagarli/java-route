@@ -125,3 +125,11 @@ class AccessListTread implements Runnable{
             list.add(i);  
     }  
 }  
+```
+
+测试结果：
+
+testVectorspend time:366  
+testCopyOnWriteArrayListspend time:717  
+testLockFreeListspend time:541  
+testLockFreeVectorspend time:244  
