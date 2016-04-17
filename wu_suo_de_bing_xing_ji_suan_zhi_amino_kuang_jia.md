@@ -20,3 +20,12 @@ public final int getAndSet(int newValue){
     }  
 }  
 ```
+
+3. 引出Amino框架
+该组件将提供一套免锁的集合类（LockFreeVector、LockFreeList、LockFreeSet等）、树结构、图结构。因为这些数据结构采用免锁的运算法则来生成，所以，它们将拥有基本的免锁组件的特性，如可以避免不同类型的死锁，不同类型的线程初始化顺序等。 
+
+Amino 还提供了一些非常有用的并行计算模式，包括 Master-Worker、Map-reduce、Divide and conquer, Pipeline 等。 
+
+Amino并没有加入到官方jdk中，因此需要自行下载、导入。
+下载地址：http://sourceforge.net/projects/amino-cbbs/files/
+
