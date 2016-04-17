@@ -29,3 +29,7 @@ Amino 还提供了一些非常有用的并行计算模式，包括 Master-Worker
 Amino并没有加入到官方jdk中，因此需要自行下载、导入。
 下载地址：http://sourceforge.net/projects/amino-cbbs/files/
 
+4. 性能测试
+下面，在64位4G内存的Windows7测试下Vector与LockFreeVector、CopyOnWriteArrayList与LockFreeList在增加、删除操作的区别。从结果可以看出，后者性能大大提升。
+
+测试代码：
