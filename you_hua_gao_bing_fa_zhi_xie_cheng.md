@@ -33,13 +33,14 @@ Kilim是由剑桥的两位博士开发的一个用于在Java中使用Coroutine�
 总结而言，采用Coroutine方式可以很好的绕开需要启动太多线程来支撑高并发出现的瓶颈，提高Java应用所能支撑的并发量，但在开发模式上也会带来变化，并且需要特别注意不能造成线程被阻塞的现象，从开发易用和透明迁移现有Java应用两个角度而言目前Coroutine方式还有很多不足，但相信随着越来越多的人在Java中使用Coroutine，其易用性必然是能够得到提升的。
 
 相关资料:
- http://en.wikipedia.org/wiki/Computer_multitasking
- http://en.wikipedia.org/wiki/Coroutine
+
+http://en.wikipedia.org/wiki/Computer_multitasking
+http://en.wikipedia.org/wiki/Coroutine
 http://en.wikipedia.org/wiki/Actor_model
 http://en.wikipedia.org/wiki/Continuation
 http://lamp.epfl.ch/~phaller/doc/haller07coord.pdf
 http://www.scala-lang.org/sites/default/files/odersky/jmlc06.pdf
- http://www.malhar.net/sriram/kilim/kilim_ecoop08.pdf 
+http://www.malhar.net/sriram/kilim/kilim_ecoop08.pdf 
 http://lamp.epfl.ch/~phaller/doc/ScalaActors.pdf
 http://blog.csdn.net/kobejayandy/article/details/41412787
 http://www.blogjava.net/BlueDavy/archive/2010/01/28/311148.html
