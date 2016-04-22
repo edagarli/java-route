@@ -15,6 +15,7 @@ public class PutInEden {
 }
 ```
 使用 JVM 参数-XX:+PrintGCDetails -Xmx20M -Xms20M 运行清单 1 所示代码，输出如清单 2 所示。
+
 清单 2. 清单 1 运行输出
 ```
 [GC [DefNew: 5504K->640K(6144K), 0.0114236 secs] 5504K->5352K(19840K), 
@@ -99,6 +100,7 @@ Heap
  the space 12288K, 3% used [0x37010000, 0x3706ce28, 0x3706d000, 0x37c10000)
  ro space 10240K, 51% used [0x3b010000, 0x3b543000, 0x3b543000, 0x3ba10000)
  rw space 12288K, 55% used [0x3ba10000, 0x3c0ae4f8, 0x3c0ae600, 0x3c610000)
+ ```
 通过清单 2 和清单 3 对比，可以发现通过设置一个较大的年轻代预留新对象，设置合理的 Survivor 区并且提供 Survivor 区的使用率，可以将年轻对象保存在年轻代。一般来说，Survivor 区的空间不够，或者占用量达到 50%时，就会使对象进入年老代 (不管它的年龄有多大)。清单 4 创建了 3 个对象，分别分配一定的内存空间。
 清单 4. 不同大小内存分配
 public class PutInEden2 {
