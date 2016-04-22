@@ -103,7 +103,9 @@ Heap
  ```
  
 通过清单 2 和清单 3 对比，可以发现通过设置一个较大的年轻代预留新对象，设置合理的 Survivor 区并且提供 Survivor 区的使用率，可以将年轻对象保存在年轻代。一般来说，Survivor 区的空间不够，或者占用量达到 50%时，就会使对象进入年老代 (不管它的年龄有多大)。清单 4 创建了 3 个对象，分别分配一定的内存空间。
+
 清单 4. 不同大小内存分配
+```
 public class PutInEden2 {
  public static void main(String[] args){
  byte[] b1,b2,b3;
@@ -114,6 +116,7 @@ public class PutInEden2 {
  b3=new byte[1024*1024*4];//分配 4MB 堆空间
  }
 }
+```
 使用参数-XX:+PrintGCDetails -Xmx1000M -Xms500M -Xmn100M -XX:SurvivorRatio=8 运行清单 4 所示代码，输出如清单 5 所示。
 清单 5. 清单 4 运行输出
 Heap
