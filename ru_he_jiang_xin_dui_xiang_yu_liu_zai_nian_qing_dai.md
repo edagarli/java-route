@@ -117,6 +117,7 @@ public class PutInEden2 {
  }
 }
 ```
+
 使用参数-XX:+PrintGCDetails -Xmx1000M -Xms500M -Xmn100M -XX:SurvivorRatio=8 运行清单 4 所示代码，输出如清单 5 所示。
 清单 5. 清单 4 运行输出
 Heap
