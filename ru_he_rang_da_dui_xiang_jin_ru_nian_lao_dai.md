@@ -12,6 +12,7 @@ public class BigObj2Old {
 }
 ```
 使用 JVM 参数-XX:+PrintGCDetails –Xmx20M –Xms20MB 运行，可以得到清单 9 所示日志输出。
+
 清单 9. 清单 8 运行输出
 Heap
  def new generation total 6144K, used 1378K [0x35c10000, 0x362b0000, 0x362b0000)
