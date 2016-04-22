@@ -57,7 +57,9 @@ Heap
  rw space 12288K, 55% used [0x3ba10000, 0x3c0ae4f8, 0x3c0ae600, 0x3c610000)
  ```
 清单 2 所示的日志输出显示年轻代 Eden 的大小有 5MB 左右。分配足够大的年轻代空间，使用 JVM 参数-XX:+PrintGCDetails -Xmx20M -Xms20M-Xmn6M 运行清单 1 所示代码，输出如清单 3 所示。
+
 清单 3. 增大 Eden 大小后清单 1 运行输出
+```
 [GC [DefNew: 4992K->576K(5568K), 0.0116036 secs] 4992K->4829K(19904K), 
  0.0116439 secs] [Times: user=0.02 sys=0.00, real=0.02 secs] 
 [GC [DefNew: 5568K->576K(5568K), 0.0130929 secs] 9821K->9653K(19904K), 
