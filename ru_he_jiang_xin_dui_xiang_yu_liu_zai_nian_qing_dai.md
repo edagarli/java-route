@@ -119,7 +119,9 @@ public class PutInEden2 {
 ```
 
 使用参数-XX:+PrintGCDetails -Xmx1000M -Xms500M -Xmn100M -XX:SurvivorRatio=8 运行清单 4 所示代码，输出如清单 5 所示。
+
 清单 5. 清单 4 运行输出
+```
 Heap
  def new generation total 92160K, used 11878K [0x0f010000, 0x15410000, 0x15410000)
  eden space 81920K, 2% used [0x0f010000, 0x0f1a9a20, 0x14010000)
@@ -130,6 +132,7 @@ Heap
  compacting perm gen total 12288K, used 2062K [0x4d810000, 0x4e410000, 0x51810000)
  the space 12288K, 16% used [0x4d810000, 0x4da13b18, 0x4da13c00, 0x4e410000)
 No shared spaces configured.
+```
 清单 5 输出的日志显示，年轻代分配了 8M，年老代也分配了 8M。我们可以尝试加上-XX:TargetSurvivorRatio=90 参数，这样可以提高 from 区的利用率，使 from 区使用到 90%时，再将对象送入年老代，运行清单 4 代码，输出如清单 6 所示。
 清单 6. 修改运行参数后清单 4 输出
 Heap
