@@ -37,6 +37,8 @@ Heap
  the space 12288K, 3% used [0x37010000, 0x3706db50, 0x3706dc00, 0x37c10000)
  ro space 10240K, 51% used [0x3b010000, 0x3b543000, 0x3b543000, 0x3ba10000)
  rw space 12288K, 55% used [0x3ba10000, 0x3c0ae4f8, 0x3c0ae600, 0x3c610000)
+ ```
+ 
 更改参数为-XX:+PrintGCDetails -Xmx20M -Xms20M -Xmn10M -XX:SurvivorRatio=2 -XX:MaxTenuringThreshold=1，运行清单 11 所示代码，输出如清单 13 所示。
 清单 13. 修改运行参数后清单 11 输出
 [GC [DefNew: 2986K->690K(7680K), 0.0047778 secs] 2986K->2738K(17920K),
