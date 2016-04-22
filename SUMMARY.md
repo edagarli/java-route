@@ -8,6 +8,7 @@
            * [如何将新对象预留在年轻代](ru_he_jiang_xin_dui_xiang_yu_liu_zai_nian_qing_dai.md)
            * [如何让大对象进入年老代](ru_he_rang_da_dui_xiang_jin_ru_nian_lao_dai.md)
            * [如何设置对象进入年老代的年龄](ru_he_she_zhi_dui_xiang_jin_ru_nian_lao_dai_de_nia.md)
+           * 稳定的 Java 堆 VS 动荡的 Java 堆
    * [Java并发编程](javabing_fa_bian_cheng.md)
        * [Java并发编程之CAS](javabing_fabian_cheng_zhi_cas.md)
        * [ConcurrentHashMap 的实现原理](concurrenthashmap_de_shi_xian_yuan_li.md)
