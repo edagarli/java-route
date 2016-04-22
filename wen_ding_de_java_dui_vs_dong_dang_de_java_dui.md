@@ -40,7 +40,9 @@ public class HeapSize {
 [GC [DefNew: 5138K->0K(6336K), 0.0038237 secs] 13508K->13490K(20288K),
 0.0038632 secs] [Times: user=0.00 sys=0.00, real=0.03 secs]
 ```
+
 改用参数：-XX:+PrintGCDetails -Xms40M -Xmx40M -XX:MinHeapFreeRatio=40 -XX:MaxHeapFreeRatio=50，运行输出如清单 16 所示。
+
 清单 16. 再次修改运行参数后清单 14 输出
 [GC [DefNew: 10678K->178K(12288K), 0.0019448 secs] 10678K->178K(39616K), 
  0.0019851 secs] [Times: user=0.00 sys=0.00, real=0.03 secs] 
