@@ -18,7 +18,10 @@ public class MaxTenuringThreshold {
 
 参数设置为：-XX:+PrintGCDetails -Xmx20M -Xms20M -Xmn10M -XX:SurvivorRatio=2
 运行清单 11 所示代码，输出如清单 12 所示。
+
 清单 12. 清单 11 运行输出
+
+```
 [GC [DefNew: 2986K->690K(7680K), 0.0246816 secs] 2986K->2738K(17920K),
  0.0247226 secs] [Times: user=0.00 sys=0.02, real=0.03 secs] 
 [GC [DefNew: 4786K->690K(7680K), 0.0016073 secs] 6834K->2738K(17920K), 
