@@ -6,6 +6,7 @@
        * [什么是内存模型](shi_yao_shi_nei_cun_mo_xing.md)
        * [JVM 优化](jvm_you_hua.md)
            * [如何将新对象预留在年轻代](ru_he_jiang_xin_dui_xiang_yu_liu_zai_nian_qing_dai.md)
+           * 如何让大对象进入年老代
    * [Java并发编程](javabing_fa_bian_cheng.md)
        * [Java并发编程之CAS](javabing_fabian_cheng_zhi_cas.md)
        * [ConcurrentHashMap 的实现原理](concurrenthashmap_de_shi_xian_yuan_li.md)
