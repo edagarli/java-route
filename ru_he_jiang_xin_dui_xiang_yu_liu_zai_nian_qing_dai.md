@@ -150,8 +150,11 @@ Heap
  ro space 10240K, 51% used [0x3b010000, 0x3b543000, 0x3b543000, 0x3ba10000)
  rw space 12288K, 55% used [0x3ba10000, 0x3c0ae4f8, 0x3c0ae600, 0x3c610000)
  ```
+ 
 如果将 SurvivorRatio 设置为 2，将 b1 对象预存在年轻代。输出如清单 7 所示。
+
 清单 7. 再次修改运行参数后清单 4 输出
+```
 Heap
  def new generation total 7680K, used 7679K [0x35c10000, 0x36610000, 0x36610000)
  eden space 5120K, 100% used [0x35c10000, 0x36110000, 0x36110000)
@@ -163,3 +166,4 @@ Heap
  the space 12288K, 3% used [0x37010000, 0x3706ce28, 0x3706d000, 0x37c10000)
  ro space 10240K, 51% used [0x3b010000, 0x3b543000, 0x3b543000, 0x3ba10000)
 rw space 12288K, 55% used [0x3ba10000, 0x3c0ae4f8, 0x3c0ae600, 0x3c610000)
+```
