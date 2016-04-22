@@ -29,7 +29,9 @@ Heap
  ```
  
 可以看到该对象被分配在了年轻代，占用了 25%的空间。如果需要将 1MB 以上的对象直接在年老代分配，设置-XX:PetenureSizeThreshold=1000000，程序运行后输出如清单 10 所示。
+
 清单 10. 修改运行参数后清单 8 输出
+```
 Heap
  def new generation total 6144K, used 354K [0x35c10000, 0x362b0000, 0x362b0000)
  eden space 5504K, 6% used [0x35c10000, 0x35c689d8, 0x36170000)
@@ -41,4 +43,5 @@ Heap
  the space 12288K, 3% used [0x37010000, 0x3706dac8, 0x3706dc00, 0x37c10000)
  ro space 10240K, 51% used [0x3b010000, 0x3b543000, 0x3b543000, 0x3ba10000)
  rw space 12288K, 55% used [0x3ba10000, 0x3c0ae4f8, 0x3c0ae600, 0x3c610000)
+ ```
 清单 10 里面可以看到当满 1MB 时进入到了年老代。
