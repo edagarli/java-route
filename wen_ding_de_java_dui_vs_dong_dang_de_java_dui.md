@@ -3,7 +3,10 @@
 -XX:MinHeapFreeRatio 参数用来设置堆空间最小空闲比例，默认值是 40。当堆空间的空闲内存小于这个数值时，JVM 便会扩展堆空间。
 -XX:MaxHeapFreeRatio 参数用来设置堆空间最大空闲比例，默认值是 70。当堆空间的空闲内存大于这个数值时，便会压缩堆空间，得到一个较小的堆。
 当-Xmx 和-Xms 相等时，-XX:MinHeapFreeRatio 和-XX:MaxHeapFreeRatio 两个参数无效。
+
 清单 14. 堆大小设置
+
+```
 import java.util.Vector;
 
 public class HeapSize {
@@ -19,6 +22,8 @@ public class HeapSize {
  }
  }
 }
+```
+
 清单 14 所示代码是测试-XX:MinHeapFreeRatio 和-XX:MaxHeapFreeRatio 的作用，设置运行参数为-XX:+PrintGCDetails -Xms10M -Xmx40M -XX:MinHeapFreeRatio=40 -XX:MaxHeapFreeRatio=50 时，输出如清单 15 所示。
 清单 15. 修改运行参数后清单 14 输出
 [GC [DefNew: 2418K->178K(3072K), 0.0034827 secs] 2418K->2226K(9920K),
