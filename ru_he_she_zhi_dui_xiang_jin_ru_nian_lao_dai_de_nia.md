@@ -3,6 +3,7 @@
 堆中的每一个对象都有自己的年龄。一般情况下，年轻对象存放在年轻代，年老对象存放在年老代。为了做到这点，虚拟机为每个对象都维护一个年龄。如果对象在 Eden 区，经过一次 GC 后依然存活，则被移动到 Survivor 区中，对象年龄加 1。以后，如果对象每经过一次 GC 依然存活，则年龄再加 1。当对象年龄达到阈值时，就移入年老代，成为老年对象。这个阈值的最大值可以通过参数-XX:MaxTenuringThreshold 来设置，默认值是 15。虽然-XX:MaxTenuringThreshold 的值可能是 15 或者更大，但这不意味着新对象非要达到这个年龄才能进入年老代。事实上，对象实际进入年老代的年龄是虚拟机在运行时根据内存使用情况动态计算的，这个参数指定的是阈值年龄的最大值。即，实际晋升年老代年龄等于动态计算所得的年龄与-XX:MaxTenuringThreshold 中较小的那个。清单 11 所示代码为 3 个对象申请了若干内存。
 
 清单 11. 申请内存
+```
 public class MaxTenuringThreshold {
  public static void main(String args[]){
  byte[] b1,b2,b3;
@@ -13,6 +14,7 @@ public class MaxTenuringThreshold {
  b3 = new byte[1024*1024*4];
  }
 }
+```
 参数设置为：-XX:+PrintGCDetails -Xmx20M -Xms20M -Xmn10M -XX:SurvivorRatio=2
 运行清单 11 所示代码，输出如清单 12 所示。
 清单 12. 清单 11 运行输出
