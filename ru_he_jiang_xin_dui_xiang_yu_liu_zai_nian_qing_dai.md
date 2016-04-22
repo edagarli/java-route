@@ -133,8 +133,11 @@ Heap
  the space 12288K, 16% used [0x4d810000, 0x4da13b18, 0x4da13c00, 0x4e410000)
 No shared spaces configured.
 ```
+
 清单 5 输出的日志显示，年轻代分配了 8M，年老代也分配了 8M。我们可以尝试加上-XX:TargetSurvivorRatio=90 参数，这样可以提高 from 区的利用率，使 from 区使用到 90%时，再将对象送入年老代，运行清单 4 代码，输出如清单 6 所示。
+
 清单 6. 修改运行参数后清单 4 输出
+```
 Heap
  def new generation total 9216K, used 9215K [0x35c10000, 0x36610000, 0x36610000)
  eden space 8192K, 100% used [0x35c10000, 0x36410000, 0x36410000)
@@ -146,6 +149,7 @@ Heap
  the space 12288K, 3% used [0x37010000, 0x3706cd90, 0x3706ce00, 0x37c10000)
  ro space 10240K, 51% used [0x3b010000, 0x3b543000, 0x3b543000, 0x3ba10000)
  rw space 12288K, 55% used [0x3ba10000, 0x3c0ae4f8, 0x3c0ae600, 0x3c610000)
+ ```
 如果将 SurvivorRatio 设置为 2，将 b1 对象预存在年轻代。输出如清单 7 所示。
 清单 7. 再次修改运行参数后清单 4 输出
 Heap
