@@ -5,7 +5,7 @@
 ```
 java –Xmx3800m –Xms3800m –Xmn2G –Xss128k –XX:+UseParallelGC 
    –XX:ParallelGC-Threads=20 –XX:+UseParallelOldGC
-   ```
+```
 –Xmx380m –Xms3800m：设置 Java 堆的最大值和初始值。一般情况下，为了避免堆内存的频繁震荡，导致系统性能下降，我们的做法是设置最大堆等于最小堆。假设这里把最小堆减少为最大堆的一半，即 1900m，那么 JVM 会尽可能在 1900MB 堆空间中运行，如果这样，发生 GC 的可能性就会比较高；
 -Xss128k：减少线程栈的大小，这样可以使剩余的系统内存支持更多的线程；
 -Xmn2g：设置年轻代区域大小为 2GB；
