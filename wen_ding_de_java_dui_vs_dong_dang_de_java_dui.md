@@ -44,7 +44,7 @@ public class HeapSize {
 改用参数：-XX:+PrintGCDetails -Xms40M -Xmx40M -XX:MinHeapFreeRatio=40 -XX:MaxHeapFreeRatio=50，运行输出如清单 16 所示。
 
 清单 16. 再次修改运行参数后清单 14 输出
-
+```
 [GC [DefNew: 10678K->178K(12288K), 0.0019448 secs] 10678K->178K(39616K), 
  0.0019851 secs] [Times: user=0.00 sys=0.00, real=0.03 secs] 
 [GC [DefNew: 10751K->178K(12288K), 0.0010295 secs] 10751K->178K(39616K),
@@ -57,7 +57,7 @@ public class HeapSize {
 0.0009339 secs] [Times: user=0.00 sys=0.00, real=0.01 secs] 
 [GC [DefNew: 10439K->178K(12288K), 0.0009876 secs] 10439K->178K(39616K),
 0.0010279 secs] [Times: user=0.00 sys=0.00, real=0.02 secs]
-
+```
 
 从清单 16 可以看出，此时堆空间的垃圾回收稳定在一个固定的范围。在一个稳定的堆中，堆空间大小始终不变，每次 GC 时，都要应对一个 40MB 的空间。因此，虽然 GC 次数减小了，但是单次 GC 速度不如一个震荡的堆。
 
