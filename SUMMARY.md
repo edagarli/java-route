@@ -4,7 +4,7 @@
 * [基础篇](chapter1.md)
    * [jvm](jvm.md)
        * [什么是内存模型](shi_yao_shi_nei_cun_mo_xing.md)
-       * [JVM 优化](jvm_you_hua.md)
+       * [jvm 优化](jvm_you_hua.md)
            * [如何将新对象预留在年轻代](ru_he_jiang_xin_dui_xiang_yu_liu_zai_nian_qing_dai.md)
    * [Java并发编程](javabing_fa_bian_cheng.md)
        * [Java并发编程之CAS](javabing_fabian_cheng_zhi_cas.md)
