@@ -25,7 +25,9 @@ public class HeapSize {
 ```
 
 清单 14 所示代码是测试-XX:MinHeapFreeRatio 和-XX:MaxHeapFreeRatio 的作用，设置运行参数为-XX:+PrintGCDetails -Xms10M -Xmx40M -XX:MinHeapFreeRatio=40 -XX:MaxHeapFreeRatio=50 时，输出如清单 15 所示。
+
 清单 15. 修改运行参数后清单 14 输出
+```
 [GC [DefNew: 2418K->178K(3072K), 0.0034827 secs] 2418K->2226K(9920K),
  0.0035249 secs] [Times: user=0.00 sys=0.00, real=0.03 secs] 
 [GC [DefNew: 2312K->0K(3072K), 0.0028263 secs] 4360K->4274K(9920K), 
@@ -37,6 +39,7 @@ public class HeapSize {
 0.1411363 secs] [Times: user=0.00 sys=0.02, real=0.16 secs] 
 [GC [DefNew: 5138K->0K(6336K), 0.0038237 secs] 13508K->13490K(20288K),
 0.0038632 secs] [Times: user=0.00 sys=0.00, real=0.03 secs]
+```
 改用参数：-XX:+PrintGCDetails -Xms40M -Xmx40M -XX:MinHeapFreeRatio=40 -XX:MaxHeapFreeRatio=50，运行输出如清单 16 所示。
 清单 16. 再次修改运行参数后清单 14 输出
 [GC [DefNew: 10678K->178K(12288K), 0.0019448 secs] 10678K->178K(39616K), 
