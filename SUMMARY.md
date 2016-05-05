@@ -19,5 +19,5 @@
        * [无锁的并行计算之Amino框架](wu_suo_de_bing_xing_ji_suan_zhi_amino_kuang_jia.md)
        * [优化高并发之协程](you_hua_gao_bing_fa_zhi_xie_cheng.md)
 * [高级篇](gao_ji_pian.md)
-   * 数据存储知识
+   * [数据存储知识](shu_ju_cun_chu_zhi_shi.md)
 
