@@ -18,5 +18,5 @@
        * [如何合理地估算线程池大小？](ru_he_he_li_di_gu_suan_xian_cheng_chi_da_xiao_ff1f.md)
        * [无锁的并行计算之Amino框架](wu_suo_de_bing_xing_ji_suan_zhi_amino_kuang_jia.md)
        * [优化高并发之协程](you_hua_gao_bing_fa_zhi_xie_cheng.md)
-* 高级篇
+* [高级篇](gao_ji_pian.md)
 
