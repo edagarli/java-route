@@ -137,5 +137,12 @@ class IntEventExceptionHandler implements ExceptionHandler {
 下面一段代码是初始化生产者的过程
 
 ```
+SequenceBarrier sequenceBarrier = ringBuffer.newBarrier();
+IntEventProducer[] producers = new IntEventProducer[1];
+for (int i = 0; i < producers.length; i++) {
+    producers[i] = new IntEventProducer();
+}
+WorkerPool<IntEvent> crawler = new WorkerPool<IntEvent>(ringBuffer,
+sequenceBarrier,new IntEventExceptionHandler(), producers);
 
 ```
