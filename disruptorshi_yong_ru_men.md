@@ -157,3 +157,4 @@ for (int i = 0; i < processors.length; i++) {
 
 WorkerPool<IntEvent> applier = new WorkerPool<IntEvent>(ringBuffer,sb,new IntEventExceptionHandler(),processors);
 ```
+
