@@ -36,5 +36,97 @@ github上Disruptor的wiki对Disruptor中的术语进行了解释，在看Disrupt
 
 不适用Disruptor的dsl，直接使用Disruptor中的类来完成。
 ```
+//RingBuffer中存储的单元
+public class IntEvent {
+    private int value = -1;
 
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    public static EventFactory<IntEvent> INT_ENEVT_FACTORY = new EventFactory<IntEvent>() {
+        public IntEvent newInstance() {
+            return new IntEvent();
+        }
+    };
+}
+//生产者
+public class IntEventProducer implements WorkHandler<IntEvent> {
+
+    private int seq = 0;
+    public void onEvent(IntEvent event) throws Exception {
+        System.out.println("produced " + seq);
+        event.setValue(++seq);
+    }
+
+}
+//消费者
+public class IntEventProcessor implements WorkHandler<IntEvent> {
+
+    public void onEvent(IntEvent event) throws Exception {
+        System.out.println(event.getValue());
+        event.setValue(1);
+    }
+
+}
+
+public class DisruptorTest {
+
+    public static void main(String[] args) throws InterruptedException {
+        //创建一个RingBuffer对象
+        RingBuffer<IntEvent> ringBuffer = new RingBuffer<IntEvent>(IntEvent.INT_ENEVT_FACTORY,
+            new SingleThreadedClaimStrategy(16),
+            new SleepingWaitStrategy());
+
+        SequenceBarrier sequenceBarrier = ringBuffer.newBarrier();
+        IntEventProducer[] producers = new IntEventProducer[1];
+        for (int i = 0; i < producers.length; i++) {
+            producers[i] = new IntEventProducer();
+        }
+        WorkerPool<IntEvent> crawler = new WorkerPool<IntEvent>(ringBuffer,
+            sequenceBarrier,
+            new IntEventExceptionHandler(),
+            producers);
+        SequenceBarrier sb = ringBuffer.newBarrier(crawler.getWorkerSequences());
+        IntEventProcessor[] processors = new IntEventProcessor[1];
+        for (int i = 0; i < processors.length; i++) {
+            processors[i] = new IntEventProcessor();
+        }
+
+        WorkerPool<IntEvent> applier = new WorkerPool<IntEvent>(ringBuffer,sb,
+            new IntEventExceptionHandler(),
+            processors);
+        List<Sequence> gatingSequences = new ArrayList<Sequence>();
+        for(Sequence s : crawler.getWorkerSequences()) {
+            gatingSequences.add(s);
+        }
+        for(Sequence s : applier.getWorkerSequences()) {
+            gatingSequences.add(s);
+        }
+ringBuffer.setGatingSequences(gatingSequences.toArray(new Sequence[gatingSequences.size()]));
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(7,7,10,TimeUnit.MINUTES,new LinkedBlockingQueue<Runnable>(5));
+        crawler.start(executor);
+        applier.start(executor);
+
+        while (true) {
+            Thread.sleep(1000);
+            long lastSeq = ringBuffer.next();
+            ringBuffer.publish(lastSeq);
+        }
+    }
+}
+
+class IntEventExceptionHandler implements ExceptionHandler {
+    public void handleEventException(Throwable ex, long sequence, Object event) {}
+    public void handleOnStartException(Throwable ex) {}
+    public void handleOnShutdownException(Throwable ex) {}
+}
 ```
