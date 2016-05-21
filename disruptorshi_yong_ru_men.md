@@ -162,5 +162,12 @@ WorkerPool<IntEvent> applier = new WorkerPool<IntEvent>(ringBuffer,sb,new IntEve
 生产者和消费者创建完成后下一步是设置RingBuffer的一个变量gatingSequences，gatingSequences的作用是防止生产者覆盖还未被消费者消费的元素，假设一个RingBuffer的大小为8，消费者消费速度较慢，那么RingBuffer可能是满的，当生产者向RingBuffer申请下一个可用序号时，还未被消费者消费的序号就不能被覆盖，所以RingBuffer就不能给生产者返回可用序号，此时消费者线程就进入等待，在这种情况下RingBuffer会检查当前申请的序号是否大于gatingSequences中的最小序号，如果当前申请的序号大于最小序号，那么生产者就等待。代码如下：
 
 ```
+List<Sequence> gatingSequences = new ArrayList<Sequence>();
+for(Sequence s : crawler.getWorkerSequences()) {
+    gatingSequences.add(s);
+}
+for(Sequence s : applier.getWorkerSequences()) {
+    gatingSequences.add(s);
+}     ringBuffer.setGatingSequences(gatingSequences.toArray(new Sequence[gatingSequences.size()]));
 
 ```
