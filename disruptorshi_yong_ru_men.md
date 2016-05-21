@@ -183,5 +183,10 @@ crawler.start(executor);
 最后要做的是生产者不断的申请可用序号，提交准备好的元素序号，即：
 
 ```
+while (true) {
+    Thread.sleep(1000);
+    long lastSeq = ringBuffer.next();
+    ringBuffer.publish(lastSeq);
+}
 
 ```
