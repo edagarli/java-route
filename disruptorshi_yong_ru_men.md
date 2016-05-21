@@ -21,3 +21,5 @@ github上Disruptor的wiki对Disruptor中的术语进行了解释，在看Disrupt
 * WorkerPool 一个WorkProcessor池，其中WorkProcessor将消费Sequence，所以任务可以在实现WorkHandler接口的worker吃间移交
 * LifecycleAware 当BatchEventProcessor启动和停止时，于实现这个接口用于接收通知。
 
+Disruptor印象
+
