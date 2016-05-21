@@ -26,5 +26,5 @@ github上Disruptor的wiki对Disruptor中的术语进行了解释，在看Disrupt
 
 初看Disruptor，给人的印象就是RingBuffer是其核心，生产者向RingBuffer中写入元素，消费者从RingBuffer中消费元素，如下图：
 
-
+![](http://img.blog.csdn.net/20140803174131225)
 
