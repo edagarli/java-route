@@ -171,3 +171,5 @@ for(Sequence s : applier.getWorkerSequences()) {
 }     ringBuffer.setGatingSequences(gatingSequences.toArray(new Sequence[gatingSequences.size()]));
 
 ```
+这里之所以加入了生产者的序号，是因为在多生产者的情况下，一个生产者不能覆盖另一个生产者已经申请的序号。
+然后下面一段的代码就是启动Disruptor线程来执行生产者和消费者线程。
