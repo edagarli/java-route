@@ -6,3 +6,5 @@
 
 ### Disruptor术语
 
+github上Disruptor的wiki对Disruptor中的术语进行了解释，在看Disruptor的过程中，对于几个其他的类，觉得有必要与这些术语放到一起，就加进来了。
+
