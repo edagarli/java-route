@@ -191,3 +191,6 @@ while (true) {
 }
 
 ```
+这个过程一般成为两阶段提交，第一个阶段调用RingBuffer.next()方法得到下一个可用节点，此时会调用生产者类的OnEvent方法，即IntEventProducer.onEvent()，第二个阶段是发布已经生产完成的元素序号lastSeq，提醒消费者，可以消费这个序号了。
+小结
+本文简要介绍了Disruptor的一些术语，解释了一个Disruptor示例程序执行过程的各个要点，从宏观上了解了Disruptor的执行流程，在下一篇文章中接着分析Disruptor的内部执行原理。
