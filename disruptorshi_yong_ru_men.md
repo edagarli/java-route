@@ -136,3 +136,5 @@ class IntEventExceptionHandler implements ExceptionHandler {
 首先是RingBuffer的创建，RingBuffer<IntEvent> ringBuffer = new RingBuffer<IntEvent>(IntEvent.INT_ENEVT_FACTORY,new SingleThreadedClaimStrategy(16), new SleepingWaitStrategy());RingBuffer的构造方法的第一个参数是实现了EventFactory接口的类，主要作用是创建IntEvent对象，在创建RingBuffer对象时，第二个参数是ClaimStrategy，生产者通过ClaimStrategy 来申请下一个可用节点，第三个参数是WaitStrategy的实现类，它定义了消费者的等待策略。
 下面一段代码是初始化生产者的过程
 
+```
+```
