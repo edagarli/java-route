@@ -148,3 +148,12 @@ sequenceBarrier,new IntEventExceptionHandler(), producers);
 ```
 ringBuffer.newBarrier()返回的是一个SequenceBarrier对象，Barrier顾名思义就是障碍的意思，这个障碍阻止了生产者越过其所能到达的ringbuffer中的位置。RingBuffer在执行过程中会维持一个游标cursor，所以生产者从RingBuffer中获取到的的游标必须小于等于这个cursor。
 然后就是消费者的初始化：
+```
+SequenceBarrier sb = ringBuffer.newBarrier(crawler.getWorkerSequences());
+IntEventProcessor[] processors = new IntEventProcessor[1];
+for (int i = 0; i < processors.length; i++) {
+    processors[i] = new IntEventProcessor();
+}
+
+WorkerPool<IntEvent> applier = new WorkerPool<IntEvent>(ringBuffer,sb,new IntEventExceptionHandler(),processors);
+```
