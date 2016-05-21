@@ -180,3 +180,4 @@ crawler.start(executor);
  applier.start(executor);
 
 ```
+最后要做的是生产者不断的申请可用序号，提交准备好的元素序号，即：
