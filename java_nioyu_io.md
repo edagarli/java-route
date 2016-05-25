@@ -68,4 +68,14 @@ String phoneLine  = reader.readLine();
 > ByteBuffer buffer = ByteBuffer.allocate(48);
 int bytesRead = inChannel.read(buffer);
 
+注意第二行，从通道读取字节到ByteBuffer。当这个方法调用返回时，你不知道你所需的所有数据是否在缓冲区内。你所知道的是，该缓冲区包含一些字节，这使得处理有点困难。
+假设第一次 read(buffer)调用后，读入缓冲区的数据只有半行，例如，“Name:An”，你能处理数据吗？显然不能，需要等待，直到整行数据读入缓存，在此之前，对数据的任何处理毫无意义。
+
+所以，你怎么知道是否该缓冲区包含足够的数据可以处理呢？好了，你不知道。发现的方法只能查看缓冲区中的数据。其结果是，在你知道所有数据都在缓冲区里之前，你必须检查几次缓冲区的数据。这不仅效率低下，而且可以使程序设计方案杂乱不堪。例如：
+
+ByteBuffer buffer = ByteBuffer.allocate(48);
+int bytesRead = inChannel.read(buffer);
+while(! bufferFull(bytesRead) ) {
+bytesRead = inChannel.read(buffer);
+}
 
