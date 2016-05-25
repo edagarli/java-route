@@ -94,3 +94,4 @@ NIO可让您只使用一个（或几个）单线程管理多个通道（网络�
 ![Java NIO: 单线程管理多个连接](http://tutorials.jenkov.com/images/java-nio/nio-vs-io-3.png)
 如果你有少量的连接使用非常高的带宽，一次发送大量的数据，也许典型的IO服务器实现可能非常契合。下图说明了一个典型的IO服务器设计：
 
+![](http://tutorials.jenkov.com/images/java-nio/nio-vs-io-4.png)
