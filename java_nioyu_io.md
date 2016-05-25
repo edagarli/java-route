@@ -40,7 +40,10 @@ Java NIO的选择器允许一个单独的线程来监视多个输入通道，你
 
 在IO设计中，我们从InputStream或 Reader逐字节读取数据。假设你正在处理一基于行的文本数据流，例如：
 
-Name: Anna
+
+> Name: Anna
 Age: 25
 Email: anna@mailserver.com
 Phone: 1234567890
+
+
