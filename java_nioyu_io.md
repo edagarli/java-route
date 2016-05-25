@@ -35,8 +35,12 @@ Java NIO的选择器允许一个单独的线程来监视多个输入通道，你
 ###API调用
 当然，使用NIO的API调用时看起来与使用IO时有所不同，但这并不意外，因为并不是仅从一个InputStream逐字节读取，而是数据必须先读入缓冲区再处理。
 
-数据处理
+###数据处理
 使用纯粹的NIO设计相较IO设计，数据处理也受到影响。
 
 在IO设计中，我们从InputStream或 Reader逐字节读取数据。假设你正在处理一基于行的文本数据流，例如：
 
+Name: Anna
+Age: 25
+Email: anna@mailserver.com
+Phone: 1234567890
