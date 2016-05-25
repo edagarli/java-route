@@ -50,16 +50,12 @@ Phone: 1234567890
 
 InputStream input = … ; // get the InputStream from the client socket
 
-1
-BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-2
- 
-3
+
+> BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 String nameLine   = reader.readLine();
-4
 String ageLine    = reader.readLine();
-5
 String emailLine  = reader.readLine();
-6
 String phoneLine  = reader.readLine();
+
+
 
