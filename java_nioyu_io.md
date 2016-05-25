@@ -86,5 +86,5 @@ bufferFull()方法扫描缓冲区，但必须保持在bufferFull（）方法被�
 
 如果缓冲区已满，它可以被处理。如果它不满，并且在你的实际案例中有意义，你或许能处理其中的部分数据。但是许多情况下并非如此。下图展示了“缓冲区数据循环就绪”：
 
-
+![Java NIO:从一个通道里读数据，直到所有的数据都读到缓冲区里.](http://tutorials.jenkov.com/images/java-nio/nio-vs-io-2.png)
 
