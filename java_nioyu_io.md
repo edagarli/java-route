@@ -88,3 +88,5 @@ bufferFull()方法扫描缓冲区，但必须保持在bufferFull（）方法被�
 
 ![Java NIO:从一个通道里读数据，直到所有的数据都读到缓冲区里.](http://tutorials.jenkov.com/images/java-nio/nio-vs-io-2.png)
 
+
+
