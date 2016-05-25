@@ -64,3 +64,8 @@ String phoneLine  = reader.readLine();
 
 （Java IO: 从一个阻塞的流中读数据） 而一个NIO的实现会有所不同，下面是一个简单的例子：
 
+
+> ByteBuffer buffer = ByteBuffer.allocate(48);
+int bytesRead = inChannel.read(buffer);
+
+
