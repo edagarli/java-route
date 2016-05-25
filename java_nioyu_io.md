@@ -73,9 +73,12 @@ int bytesRead = inChannel.read(buffer);
 
 所以，你怎么知道是否该缓冲区包含足够的数据可以处理呢？好了，你不知道。发现的方法只能查看缓冲区中的数据。其结果是，在你知道所有数据都在缓冲区里之前，你必须检查几次缓冲区的数据。这不仅效率低下，而且可以使程序设计方案杂乱不堪。例如：
 
-ByteBuffer buffer = ByteBuffer.allocate(48);
+
+> ByteBuffer buffer = ByteBuffer.allocate(48);
 int bytesRead = inChannel.read(buffer);
 while(! bufferFull(bytesRead) ) {
 bytesRead = inChannel.read(buffer);
 }
+
+
 
