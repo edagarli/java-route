@@ -1,6 +1,6 @@
 # Java成神技术路线
 
-Java成神技术路线，成为Java大神所需要学习的所有相关知识点。其中涉及到一些我写的演示代码。我放在了这里。（https://github.com/edagarli/JavaDayAndDay ）
+Java成神技术路线，成为Java大神所需要学习的所有相关知识点。其中涉及到一些我写的演示代码。我放在了这里。（https://github.com/edagarli/JavaDayAndDay 
 
 **声明：文章有些内容可能来自第三方资源，书籍最后我会备注引用出处。有任何其他问题，都可以联系我edagarli(lizhi@edagarli.com)**
 
