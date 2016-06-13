@@ -23,6 +23,6 @@
        * [Disruptor使用入门](disruptorshi_yong_ru_men.md)
 * [高级篇](gao_ji_pian.md)
    * [数据存储知识](shu_ju_cun_chu_zhi_shi.md)
-       * [关系型数据库](guan_xi_xing_shu_ju_ku.md)
+       * [MySQL](guan_xi_xing_shu_ju_ku.md)
        * [NoSQL](nosql.md)
 
