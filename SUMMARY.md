@@ -24,5 +24,5 @@
 * [高级篇](gao_ji_pian.md)
    * [数据存储知识](shu_ju_cun_chu_zhi_shi.md)
        * [MySQL](guan_xi_xing_shu_ju_ku.md)
-       * [NoSQL](nosql.md)
+       * [Redis](nosql.md)
 
